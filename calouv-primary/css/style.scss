@@ -1,0 +1,551 @@
+@import "_breakpoints.scss";
+
+/* 
+========================================
+      FARVER
+========================================*/
+
+$paragraf: #1f2323;
+$brun: #836c5d;
+$dark-beige: #e9d8c7;
+$beige: #EFE8E2;
+$baggrund: #FCF5EF; 
+$cta: #c5e6e8;
+$hjerte: #971D1D;
+
+/* 
+========================================
+      ØVRIGE VARIABLER
+========================================*/
+
+$mobile-padding: 16px;
+$desktop-padding: 36px;
+
+/* 
+========================================
+      TYPOGRAFI IMPORT
+========================================*/
+$overskrift: ivymode, poppins, sans-serif;
+$poppsins: poppins, sans-serif;
+
+/* 
+========================================
+      KNAPPER
+========================================*/
+
+.container_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center_button {
+  width: 150px;
+  height: 45px;
+  position: absolute;
+}
+
+.btn {
+  width: 150px;
+  height: 45px;
+  cursor: pointer;
+  background: $cta;
+  border: 0px solid $paragraf;
+  outline: none;
+  transition: 0.5s ease-in-out;
+}
+
+
+.btn:hover {
+  transition: 0.5s ease-in-out;
+  background: $baggrund;
+  border: 0.5px solid $paragraf;
+}
+
+.btn span {
+  color: $paragraf;
+  font-size: 1rem;
+  font-weight: 100;
+}
+
+.btn--small {
+  width: 120px;
+  height: 45px; 
+
+  span {
+    font-size: 0.9rem;
+  }
+}
+
+.btn--large {
+  width: 180px;
+  height: 45px;
+}
+
+/* 
+========================================
+      INDHOLD MAIN
+========================================*/
+
+body {
+  background-color: $baggrund;
+  font-size: 62.5%;
+  margin: 0;
+}
+
+a {
+  font-size: 1rem;
+  font-family: $poppsins;
+  font-weight: 400;
+  color: $paragraf;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 1.2;
+}
+// a:active, a:visited {
+//   color: #971D1D;
+// }
+p {
+  font-size: 1rem;
+  font-weight: 200;
+  color: $paragraf;
+  font-family: $poppsins;
+  line-height: 1.5;
+}
+h1 {
+  font-size:2rem;
+  font-weight: 500;
+  color: $paragraf;
+  font-family: $overskrift;
+  margin: 0;
+  
+}
+.h1-big {
+  font-size: 4rem;
+  margin-top: 1rem;
+  margin-bottom: 4rem;
+}
+h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: $brun;
+  font-family: $overskrift;
+  line-height: 1.2;
+}
+h3 {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: $brun;
+  margin-top: 5px;
+  font-family: $overskrift;
+  line-height: 1.2;
+  font-style: italic;
+}
+.author {
+  font-style: italic;
+}
+
+/* 
+========================================
+      LAYOUT ELEMENTS
+========================================*/
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1280px;
+
+  &__heading {
+    text-align: center;
+    max-width: 500px;
+  }
+  span {
+    letter-spacing: 0.2rem;
+    margin-bottom: 10px;
+  }
+}
+
+section {
+  margin: 0 auto;
+//   padding: $mobile-padding;
+}
+
+
+/* 
+========================================
+      HEADER
+=======================================*/
+
+.main-header{
+  display: grid;
+//   margin-bottom: 20vh;
+  height: 10vh;
+  grid-template:
+  'nav logo tools';
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  background-color: $beige;
+  padding: 18px;
+//   position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  &__logo { 
+    grid-area: logo;
+    z-index: 5;
+  }
+
+  &__nav {
+    grid-area: nav;
+    justify-self: start;
+    align-self: center;
+
+    .menu {
+      display: none;
+      padding-top: 0;
+      list-style: none;
+
+      .menu-item {
+        display: inline-block;
+        padding: 0 25px;
+      }
+
+      a { text-decoration: none; font-weight: 300;}
+    }
+    .menu-link {
+      width: 2rem;
+      height: 1.6rem;
+      position: relative;
+
+      span {
+        z-index: 2;
+        position: absolute;
+        left: 0;
+        right: 0;
+        display: block;
+        height: 0.07rem;
+        background-color: #836c5d;
+
+        &:first-child {top: 0;}
+        &:nth-child(2) {top: calc(50% - 5px);}
+        &:last-child {top: calc(50% + 5px);} 
+      }
+    }
+  }
+
+  &__tools { 
+    grid-area: tools;
+    justify-self: end;
+    align-self: center;
+    padding: 0.9rem;
+    z-index: 10;
+  }
+  .main-header__logo {
+    justify-self: center;
+    align-self: center;
+    img { width: 120px;}
+  }  
+}
+
+
+/* Mobile Menu
+==============================================*/
+
+.mobile-menu { 
+    display: none;
+    text-decoration: none;
+ 
+    .menu {
+        padding: 0;
+        list-style-type: none;
+        background-color: $beige;
+
+        a {
+            padding: 0.6rem 1rem;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+        }
+    
+        .menu-item {
+            &:hover .sub-menu {
+                display: block;
+            }
+        }
+    }
+
+    .sub-menu {
+        display: none;
+        padding: 0;
+        background-color: #fff;
+        min-width: 140px;
+        z-index: 1;
+
+        .menu-item {
+            padding: 0;
+            display: block;
+
+            a {
+                text-decoration: none;
+                display: block;
+                padding: 0.6rem 1rem;
+
+                li {
+                    padding: 0;
+                    display: block;
+                    text-align: center;
+                }
+
+                &:hover {
+                    background-color: #ddd;
+                }
+            }
+        }
+
+    }
+
+
+}
+
+
+
+/* 
+========================================
+      HERO SECTION
+========================================*/
+
+.hero {
+  position: relative;
+  margin-top: 13vh;
+
+  &::after {
+    content: "";
+    background-image: url("../images/portrait.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px 12%;
+    position: absolute;
+    top: 0;  
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  &__wrapper{
+    text-decoration: none;
+    height: 45vh;
+    display: grid !important;
+    justify-items: center !important;
+
+    &__heading { 
+        display: grid;
+        justify-items: center;
+    }
+  }  
+}
+
+/* 
+========================================
+      ECOMMERCE
+========================================*/
+
+.shop-section {
+    &__heading, &__body {
+        text-align: center;
+    }
+}
+.items {
+    width: 80%;
+    display: grid;
+    align-content: center;
+}
+
+section, footer, .content-area, main {
+    margin: 0 auto;
+    padding: $mobile-padding;
+
+    @include tablet-portrait {
+        padding: $desktop-padding;
+    }
+}
+/* 
+========================================
+      SINGLE PRODUCT
+========================================*/
+
+/* Page Hero */
+.page-hero {
+    display: grid;
+    height: 60vh;
+    background-color: #ececec;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    justify-items: center;
+    align-items: center;
+    color: #fff;
+    margin: 20px 0;
+
+    &__heading { color: $brun; text-align:center;}
+}
+
+.woocommerce-Price-amount {
+    font-size: 1.25rem;
+    color: $brun;
+}
+.price {
+    font-size: 1.25rem;
+    color: $brun;
+}
+
+
+/* 
+========================================
+      FOOTER
+========================================*/
+
+/* 
+================================================================================
+      
+      MEDIA QUERIES 
+
+================================================================================*/
+
+
+/* 
+========================================
+      MEDIA QUERIES MOBILE
+========================================*/
+
+@include phone-landscape {
+
+}
+
+/* 
+========================================
+      MEDIA QUERIES TABLET
+========================================*/
+
+@include tablet {
+  a {
+    font-size: 1.2rem;
+  }
+  p {
+    font-size: 1.2rem;
+  }
+  h1 {
+    font-size:2.5rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+}
+
+@include tablet-portrait {
+  
+}  
+
+
+@include tablet-landscape {
+  a {
+    font-size: 1.2rem;
+  }
+  p {
+    font-size: 1.2rem;
+  }
+  
+  h1 {
+    font-size:3.5rem;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+  
+}
+
+/* 
+========================================
+      MEDIA QUERIES DESKTOP
+========================================*/
+
+@include desktop {
+  a {
+    font-size: 1.2rem;
+  }
+  p {
+    font-size: 1.2rem;
+  }
+  
+  h1 {
+    font-size:2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+  
+}
+
+@include desktop-mid {
+  .main-header {
+    grid-template: 'logo nav tools';
+    background-color: rgba(255,255,255,0);
+
+  
+    &__logo {
+      justify-self: start;
+    }
+
+    &__nav {
+      justify-self: center;
+
+      .menu {
+        display: block;
+      }
+      .menu-link {
+        display: none;
+      }
+    }
+  }
+}
+
+@include desktop-xl {
+  a {
+    font-size: 1.6rem;
+  }
+  p {
+    font-size: 1.6rem;
+  }
+  
+  h1 {
+    font-size:3.5rem;
+  }
+  
+  h2 {
+    font-size: 3rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+  .hero {
+    margin-top: 8vh;
+  }
+}
